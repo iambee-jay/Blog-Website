@@ -33,9 +33,9 @@ const connectDB = async () => {
   }
 };
 
-app.all("*", (req, res) => {
-  res.json({ "every thing": "is awesome" });
-});
+// app.all("*", (req, res) => {
+//   res.json({ "every thing": "is awesome" });
+// });
 
 connectDB().then(() => {
   app.listen(port, () => {
