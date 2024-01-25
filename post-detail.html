@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${post.title}</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;0,6..96,900;1,6..96,400;1,6..96,500;1,6..96,600;1,6..96,700;1,6..96,800;1,6..96,900&family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+    <script src="nav.js" defer></script>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav_logo">
+        <a href="/"> Nordic Rose</a>
+      </div>
+      <a class="nav_hamburger">
+        <span class="nav_hamburger_line"></span>
+        <span class="nav_hamburger_line"></span>
+        <span class="nav_hamburger_line"></span>
+      </a>
+      <div class="nav_menu">
+        <div>
+          <div id="register_div">
+            <h1>Register</h1>
+            <form id="register_form">
+              <input
+                type="text"
+                id="register_username"
+                placeholder="Username"
+              />
+              <input
+                type="password"
+                id="register_password"
+                placeholder="Password"
+              />
+              <select id="register_role">
+                <option value="reader">Reader</option>
+                <option value="admin">Admin</option>
+              </select>
+              <button type="submit">Register</button>
+            </form>
+          </div>
+          <div id="logout_div">
+            <h2 id="username">Username</h2>
+            <button id="logout_button">Logout</button>
+          </div>
+          <div id="login_div">
+            <h1>Login</h1>
+            <form id="login_form">
+              <input type="text" id="login_username" placeholder="Username" />
+              <input
+                type="password"
+                id="login_password"
+                placeholder="Password"
+              />
+            </form>
+            <button id="login_button" type="submit">Login</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <img src="${post.imageUrl}" alt="detail_post_img" />
+      <div class="post_content">
+        <h1 class="post_title">${post.title}</h1>
+        <div class="extra_info">
+          <p class="post_timestamp">${post.timstamp}</p>
+          <p class="post_author">${post.author}</p>
+        </div>
+        <p>${post.content}</p>
+      </div>
+    </main>
+    <footer>
+      <h3>Nordic Rose</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iusto
+        itaque a deserunt quam, velit totam libero fugit explicabo animi?
+      </p>
+      <span>
+        <p>&copy;</p>
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+      </span>
+    </footer>
+  </body>
+</html>
