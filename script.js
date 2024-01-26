@@ -87,7 +87,7 @@ async function fetchPosts(baseUrl) {
             <button class="btn" style = "${deleteButtonStyle}"onclick = "deletePost('${
           post._id
         }', '${baseUrl}')">Delete</button>
-            <button class="btn" style = "${updateButtonStyle}"onclick = "showUpdateForm('${
+            <button class="btn" style = "${deleteButtonStyle}"onclick = "showUpdateForm('${
           post.title
         }', '${post.content}')">Update</button>
           </div>
