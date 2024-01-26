@@ -61,7 +61,7 @@ const Post = mongoose.model(
 const User = mongoose.model(
   "User",
   new mongoose.Schema({
-    usename: String,
+    username: String,
     password: String,
     role: String,
   })
