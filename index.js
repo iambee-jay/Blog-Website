@@ -35,10 +35,6 @@ const connectDB = async () => {
   }
 };
 
-// app.all("*", (req, res) => {
-//   res.json({ "every thing": "is awesome" });
-// });
-
 connectDB().then(() => {
   app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
