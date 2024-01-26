@@ -57,13 +57,13 @@ async function fetchPosts(baseUrl) {
   const res = await fetch(`${baseUrl}/posts`);
   const data = await res.json();
   const postList = document.getElementById("post_list");
-  const isAdmin = localStorage.getItem("userRole") == "admin";
+  const isAdmin = localStorage.getItem("userRole") === "admin";
 
   if (postList) {
     postList.innerHTML = data
       .map((post, index) => {
-        const deleteButtonStyle = isAdmin ? " " : "display: none";
-        const updateButtonStyle = isAdmin ? " " : "display: none";
+        const deleteButtonStyle = isAdmin ? "" : "display: none";
+        const updateButtonStyle = isAdmin ? "" : "display: none";
 
         return `
         <div id="${post._id}" class="post">
@@ -74,22 +74,22 @@ async function fetchPosts(baseUrl) {
           <div class="post_title">
             ${
               index === 0
-                ? `<h1> <a href = "/post/${post._id}>${post.title} </a> </h1>`
+                ? `<h1> <a href = "/post/${post._id}>${post.title} </<a> </h1>`
                 : `<h3> <a href = "/post/${post._id}>${post.title} </a> </h3>`
             }
           </div>
           ${
             index === 0
               ? `<span> <p>${post.author}</p> <p> ${post.timestamp} </p> </span>`
-              : ``
+              : ""
           }
           <div id="admin_buttons">
             <button class="btn" style = "${deleteButtonStyle} onclick = "deletePost('${
           post._id
         }', '${baseUrl}')">Delete</button>
-            <button class="btn" style = "${deleteButtonStyle} onclick = "showUpdateForm('${
+            <button class="btn" style = "${updateButtonStyle} onclick = "showUpdateForm('${
           post.title
-        }', '${post.content}')">Delete</button>
+        }', '${post.content}')">Update</button>
           </div>
           ${index === 0 ? "<hr>" : ""}
           ${index === 0 ? "<h2> All Articles </h2>" : ""}
