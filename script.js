@@ -293,8 +293,8 @@ async function registerUser(event, baseUrl) {
 async function loginUser(event, baseUrl) {
   event.preventDefault();
 
-  const usernameInput = document.getElementById("login_usename").value;
-  const passwordInput = document.getElementById("login_password").value;
+  const usernameInput = document.getElementById("login_usename");
+  const passwordInput = document.getElementById("login_password");
 
   const username = usernameInput.value;
   const password = passwordInput.value;
