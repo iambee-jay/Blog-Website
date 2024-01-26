@@ -88,8 +88,8 @@ async function fetchPosts(baseUrl) {
           post._id
         }', '${baseUrl}')">Delete</button>
             <button class="btn" style = "${deleteButtonStyle}"onclick = "showUpdateForm('${
-          post.title
-        }', '${post.content}')">Update</button>
+          post._id
+        }', '${post.title}', '${post.content}')">Update</button>
           </div>
           ${index === 0 ? "<hr>" : ""}
           ${index === 0 ? "<h2> All Articles </h2>" : ""}
