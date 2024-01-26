@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const registerForm = document.getElementById("register_form");
   registerForm.addEventListener("submit", (event) =>
-    registerUser(event, basrUrl)
+    registerUser(event, baseUrl)
   );
 });
 
