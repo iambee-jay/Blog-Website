@@ -81,14 +81,14 @@ const authenticateJWt = (req, res, next) => {
   if (token) {
     jwt.verify(token, jwtSecret, (err, user) => {
       if (err) {
-        console.log("JWT verification error", err.message);
+        console.error("JWT verification error", err.message);
         return res.sendStatus(403);
       }
       req.user = user;
       next();
     });
   } else {
-    console.log("Token is missing");
+    console.error("Token is missing");
     return res.sendStatus(403);
   }
 };
@@ -112,7 +112,7 @@ app.post("/register", async (req, res) => {
 
   const newUser = new User({
     username: sanitizedUsername,
-    password: sanitizedPassword,
+    password: hashedPassword,
     role,
   });
 
