@@ -187,7 +187,7 @@ app.post("/posts", authenticateJWt, async (req, res) => {
       .then((savedPost) => {
         res.status(201).send(savedPost);
       })
-      .catch((err) => {
+      .catch((error) => {
         res.status(500).send({ error: "Internal server error" });
       });
   } else {
@@ -195,7 +195,7 @@ app.post("/posts", authenticateJWt, async (req, res) => {
   }
 });
 
-app.post("/posts/:id", authenticateJWt, async (req, res) => {
+app.get("/posts/:id", async (req, res) => {
   const postId = req.params.id;
   const post = await Post.findById(postId);
 
@@ -224,7 +224,7 @@ app.post("/posts/:id", authenticateJWt, async (req, res) => {
 
 // delete post
 
-app.delete("/posts:id", authenticateJWt, async (req, res) => {
+app.delete("/posts/:id", authenticateJWt, async (req, res) => {
   if (req.user.role == "admin") {
     try {
       await Post.findByIdAndDelete(req.params.id);
@@ -239,7 +239,7 @@ app.delete("/posts:id", authenticateJWt, async (req, res) => {
 
 // update post
 
-app.put("/posts:id", authenticateJWt, async (req, res) => {
+app.put("/posts/:id", authenticateJWt, async (req, res) => {
   const { title, content } = req.body;
   const postId = req.params.id;
 
