@@ -334,7 +334,7 @@ async function loginUser(event, baseUrl) {
 
     location.reload();
 
-    if (data.role == "admin") {
+    if (data.role === "admin") {
       showAdminFeatures();
     }
   } else {
