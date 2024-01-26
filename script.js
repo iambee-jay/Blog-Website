@@ -201,7 +201,7 @@ function showUpdateForm(postId, title, content) {
   postElement.innerHTML += updateForm;
 
   const form = document.getElementById("update_form");
-  form.addEventListener("submit", (event) => updatedPost(event, postId));
+  form.addEventListener("submit", (event) => updateForm(event, postId));
 }
 
 // update post
