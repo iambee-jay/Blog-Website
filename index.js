@@ -137,6 +137,7 @@ app.post("/login", async (req, res) => {
   }
 
   const user = await User.findOne({ username: sanitizedUsername });
+  console.log(user);
 
   if (user) {
     if (bcrypt.compare(password, user.password)) {
