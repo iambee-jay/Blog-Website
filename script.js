@@ -87,7 +87,7 @@ async function fetchPosts(baseUrl) {
             <button class="btn" style = "${deleteButtonStyle}"onclick = "deletePost('${
           post._id
         }', '${baseUrl}')">Delete</button>
-            <button class="btn" style = "${deleteButtonStyle}"onclick = "showUpdateForm('${
+            <button class="btn" style = "${updateButtonStyle}"onclick = "showUpdateForm('${
           post._id
         }', '${post.title}', '${post.content}')">Update</button>
           </div>
@@ -147,7 +147,7 @@ async function createPost(event, baseUrl) {
     const response = await fetch(`${baseUrl}/posts`, requestOptions);
     if (!response.ok) {
       const storedRole = localStorage.getItem("userRole");
-      console.log(`Error craeating the post: http status ${response.status}`);
+      console.error(`Error craeating the post: http status ${response.status}`);
     } else {
       // clear the input data
       titleInput.value = "";
@@ -156,7 +156,7 @@ async function createPost(event, baseUrl) {
       alert("Post created successfully");
     }
   } catch (err) {
-    console.log("Error creating post: ", err);
+    console.error("Error creating post: ", err);
     alert("craete post failed.");
   }
   fetchPosts(baseUrl);
@@ -201,7 +201,7 @@ function showUpdateForm(postId, title, content) {
   postElement.innerHTML += updateForm;
 
   const form = document.getElementById("update_form");
-  form.addEventListener("submit", (event) => updateForm(event, postId));
+  form.addEventListener("submit", (event) => updatedPost(event, postId));
 }
 
 // update post
