@@ -201,15 +201,15 @@ function showUpdateForm(postId, title, content) {
   postElement.innerHTML += updateForm;
 
   const form = document.getElementById("update_form");
-  form.addEventListener("submit", (event) => updateForm(event, postId));
+  form.addEventListener("submit", (event) => updatePost(event, postId));
 }
 
 // update post
-async function updateForm(event, postId) {
+async function updatePost(event, postId) {
   event.preventDefault();
 
   const title = document.getElementById("update_title").value;
-  const tcontentitle = document.getElementById("update_content").value;
+  const content = document.getElementById("update_content").value;
   const baseUrl = window.location.origin;
 
   // ensure input are not empty
